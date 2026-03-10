@@ -145,7 +145,7 @@ if PAGE == "📍 Encroachment Map":
     sev_colors = {"Critical": "#dc3545", "High": "#ffc107", "Medium": "#17a2b8"}
     fv["color"] = fv["severity"].map(sev_colors).fillna("#6c757d")
 
-    fig_map = px.scatter_mapbox(
+    fig_map = px.scatter_map(
         fv,
         lat="lat", lon="lon",
         color="severity",
@@ -155,7 +155,7 @@ if PAGE == "📍 Encroachment Map":
                     "policy_ref": True, "lat": False, "lon": False},
         zoom=5.5,
         center={"lat": -0.5, "lon": 37.0},
-        mapbox_style="carto-positron",
+        map_style="carto-positron",
         height=500,
         title="Documented riparian encroachments — Kenya",
     )
