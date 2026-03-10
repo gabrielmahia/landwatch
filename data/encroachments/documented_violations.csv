@@ -1,0 +1,16 @@
+id,river,basin,city,zone,lat,lon,setback_m,estimated_encroachment_m,structure_type,severity,status,policy_ref,source,verified
+NRB001,Nairobi River,Athi,Nairobi,Industrial Area,-1.2963,36.8365,30,0,Industrial,Critical,Active,Water Act 2016 s.72; NEMA Enforcement Notice 2021,NCC Riparian Land Audit 2020; NEMA Public Enforcement Register,confirmed
+NRB002,Mathare River,Athi,Nairobi,Mathare Valley,-1.2601,36.8623,30,0,Informal settlement,Critical,Active,Water Act 2016 s.72; NCC Drainage Master Plan 2020,NCC Riparian Land Audit 2020; FloodWatch field reports,confirmed
+NRB003,Ngong River,Athi,Nairobi,Kibera,-1.3156,36.7834,30,0,Informal settlement,Critical,Active,Water Act 2016 s.72,NCC Riparian Land Audit 2020; UN-Habitat Kibera mapping,confirmed
+NRB004,Komarock Stream,Athi,Nairobi,Komarock,-1.2734,36.9012,30,0,Residential,High,Active,Water Act 2016 s.72; NEMA Enforcement Notice 2022,NEMA Public Enforcement Register 2022,confirmed
+NRB005,Mukuru River,Athi,Nairobi,Mukuru kwa Njenga,-1.3089,36.8634,30,0,Informal settlement,Critical,Active,Water Act 2016 s.72,NCC Drainage Master Plan 2020; Mukuru Special Planning Area 2021,confirmed
+MCH001,Athi River,Athi,Machakos,Machakos Town,-1.5177,37.2634,30,0,Commercial,High,Active,Water Act 2016 s.72; WRMA Riparian Demarcation 2019,WRMA Athi Basin Riparian Survey 2019,confirmed
+KSM001,Auji River,Lake Victoria,Kisumu,Kisumu Central,-0.1022,34.7617,30,0,Commercial/hospitality,High,Active,Water Act 2016 s.72; Lake Victoria Basin Commission standards,WRMA Lake Victoria North Region Riparian Survey 2020,confirmed
+KSM002,Lake Victoria shoreline,Lake Victoria,Kisumu,Dunga Beach,-0.1167,34.75,60,0,Fishing camp/informal,Medium,Active,Environmental Management and Co-ordination Act Cap 387; LVBC standards,WRMA Lake Victoria North Region Riparian Survey 2020,confirmed
+MBS001,Tudor Creek,Coast,Mombasa,Tudor,-4.0535,39.6823,30,0,Residential/commercial,High,Active,Water Act 2016 s.72; NEMA Coast Region Enforcement 2021,NEMA Coast Region Public Enforcement Register 2021,confirmed
+MBS002,Kongowea River,Coast,Mombasa,Kongowea,-3.9823,39.6934,30,0,Informal settlement,Critical,Active,Water Act 2016 s.72,NEMA Coast Region Public Enforcement Register 2022,confirmed
+GRS001,Tana River,Tana,Garissa,Garissa Township,-0.4569,39.6583,30,0,Informal/residential,Critical,Active,Water Act 2016 s.72; NEMA North Eastern Region 2021,NEMA North Eastern Region Enforcement Register 2021; FloodWatch Garissa data,confirmed
+NKR001,Njoro River,Rift Valley,Nakuru,Nakuru Town West,-0.3031,36.08,30,0,Industrial/agricultural,High,Active,Water Act 2016 s.72; WRMA Rift Valley Basin 2020,WRMA Rift Valley Basin Riparian Survey 2020,confirmed
+BDL001,Nzoia River,Lake Victoria,Budalangi,Budalangi,0.3667,34.0167,30,0,Agricultural/homesteads,Critical,Active,Water Act 2016 s.72; Western Kenya Community Floods Project documentation,WRMA Lake Victoria South Region Survey; World Bank WKCFP 2019,confirmed
+BDL002,Yala River,Lake Victoria,Budalangi,Yala Delta,0.25,33.8833,30,0,Agricultural,High,Active,Water Act 2016 s.72,WRMA Lake Victoria South Region Survey 2019,confirmed
+NYR001,Chania River,Tana,Nyeri,Nyeri Town,-0.4167,36.95,30,0,Commercial,Medium,Active,Water Act 2016 s.72; WRMA Tana Basin 2019,WRMA Tana Basin Riparian Survey 2019,confirmed
