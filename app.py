@@ -32,7 +32,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 st.set_page_config(
-    page_title="LandWatch Kenya",
+    page_title="Hifadhi — Land & River Watch Kenya",
     page_icon="🗺️",
     layout="wide",
     initial_sidebar_state="expanded",
