@@ -84,7 +84,7 @@ rivers = load_rivers()
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="lw-header">
-  <h1>🗺️ LandWatch Kenya</h1>
+  <h1>🗺️ Hifadhi — LandWatch Kenya</h1>
   <p>Riparian encroachment mapper · Water Act 2016 compliance · NEMA / WRMA enforcement data</p>
 </div>
 """, unsafe_allow_html=True)
@@ -396,7 +396,7 @@ Unverified locations will not be added.
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.divider()
 st.caption(
-    "LandWatch Kenya · Data: NEMA, WRMA, NCC public records (public domain) · "
+    "Hifadhi · LandWatch Kenya · Data: NEMA, WRMA, NCC public records (public domain) · "
     "CC BY-NC-ND 4.0 · contact@aikungfu.dev · "
     "Not affiliated with NEMA, WRMA, or any county government · "
     "This tool tracks structural patterns, not individuals"
