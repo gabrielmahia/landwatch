@@ -30,6 +30,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+import urllib.request
+import json
+import xml.etree.ElementTree as ET
+import re
 
 st.set_page_config(
     page_title="Hifadhi — Land & River Watch Kenya",
@@ -70,6 +74,59 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 # ── Data ──────────────────────────────────────────────────────────────────────
 DATA = Path(__file__).parent / "data"
 
+
+@st.cache_data(ttl=3600)
+def fetch_rainfall_signal():
+    """7-day national rainfall from Open-Meteo for 6 key river cities."""
+    cities = {
+        "Nairobi":  (-1.29,  36.82),
+        "Mombasa":  (-4.04,  39.67),
+        "Kisumu":   (-0.09,  34.77),
+        "Nakuru":   (-0.30,  36.08),
+        "Eldoret":  (0.52,   35.27),
+        "Thika":    (-1.03,  37.09),
+    }
+    results = {}
+    for city, (lat, lon) in cities.items():
+        try:
+            url = (
+                f"https://api.open-meteo.com/v1/forecast"
+                f"?latitude={lat}&longitude={lon}"
+                f"&daily=precipitation_sum&forecast_days=7"
+                f"&timezone=Africa%2FNairobi"
+            )
+            with urllib.request.urlopen(url, timeout=6) as r:
+                d = json.loads(r.read())
+            precip = d.get("daily", {}).get("precipitation_sum", [])
+            total  = round(sum(precip), 1)
+            results[city] = {"total_mm": total, "flood_risk": total > 60, "daily": precip}
+        except Exception:
+            results[city] = {"total_mm": None, "flood_risk": False, "daily": []}
+    return results
+
+
+@st.cache_data(ttl=7200)
+def fetch_ndma_alerts():
+    """NDMA drought and flood publications."""
+    try:
+        req = urllib.request.Request(
+            "https://www.ndma.go.ke/feed/",
+            headers={"User-Agent": "landwatch-kenya/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=8) as r:
+            root = ET.fromstring(r.read())
+        items = []
+        for item in root.findall(".//item")[:5]:
+            title = item.findtext("title", "").strip()
+            link  = item.findtext("link",  "").strip()
+            date  = item.findtext("pubDate", "").strip()[:16]
+            desc  = re.sub(r"<[^>]+>", "", item.findtext("description", "")).strip()[:160]
+            if title:
+                items.append({"title": title, "link": link, "date": date, "summary": desc})
+        return items
+    except Exception:
+        return []
+
 @st.cache_data(ttl=86400)
 def load_violations():
     return pd.read_csv(DATA / "encroachments" / "documented_violations.csv")
@@ -98,6 +155,33 @@ Assessment before any development in or near riparian land.
 Enforcement: WRMA, NEMA, and respective county governments.
 </div>
 """, unsafe_allow_html=True)
+
+# ── Live rainfall signal — riparian flood risk ─────────────────────────────
+_rain = fetch_rainfall_signal()
+_ndma = fetch_ndma_alerts()
+
+_risk_cities = [c for c, v in _rain.items() if v.get("flood_risk")]
+if _risk_cities:
+    st.warning(
+        f"⚠️ **Active flood risk signal:** {', '.join(_risk_cities)} — 7-day rainfall forecast "
+        f"exceeds 60mm. Riparian encroachments in these cities face elevated inundation risk."
+    )
+
+_rain_cols = st.columns(len(_rain))
+for col, (city, data) in zip(_rain_cols, _rain.items()):
+    if data["total_mm"] is not None:
+        col.metric(city, f"{data['total_mm']}mm",
+                   delta="⚠️ High" if data["flood_risk"] else "Normal",
+                   delta_color="inverse" if data["flood_risk"] else "off")
+    else:
+        col.metric(city, "—")
+st.caption("📡 7-day rainfall forecast · Open-Meteo · updated hourly")
+
+if _ndma:
+    with st.expander(f"📡 NDMA Live Alerts ({len(_ndma)} recent)", expanded=False):
+        for item in _ndma:
+            st.markdown(f"**[{item['title'][:80]}{'…' if len(item['title'])>80 else ''}]({item['link']})**  *{item['date']}*")
+            st.caption(item["summary"] + "…")
 
 # ── Navigation ────────────────────────────────────────────────────────────────
 PAGE = st.sidebar.radio(
