@@ -3,6 +3,7 @@
 Riparian encroachment mapper — Water Act 2016 compliance data from NEMA, WRMA, and NCC.
 
 [![Live App](https://img.shields.io/badge/Live%20App-hifadhi.streamlit.app-FF4B4B?logo=streamlit)](https://hifadhi.streamlit.app)
+[![Live Data](https://img.shields.io/badge/Live%20Data-Open-Meteo%20%C2%B7%20NDMA-00b4d8)](#landwatch)
 [![CI](https://github.com/gabrielmahia/landwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/gabrielmahia/landwatch/actions)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
