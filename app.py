@@ -85,6 +85,20 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     [data-theme="dark"] [data-testid="stMetricDelta"],
     .stApp[data-theme="dark"] [data-testid="stMetricDelta"] { color: #cccccc !important; }
 
+
+    @media (prefers-color-scheme: dark) {
+        .sev-critical { background: #3d1015 !important; border-color: #dc3545 !important; color: #f1948a !important; }
+        .sev-high     { background: #3d3010 !important; border-color: #ffc107 !important; color: #f0c060 !important; }
+        .sev-medium   { background: #0d2d35 !important; border-color: #17a2b8 !important; color: #7dd8e8 !important; }
+        .law-box      { background: #0d2518 !important; border-color: #2d8a2d !important; color: #7dcea0 !important; }
+        .source-note  { background: #1e2127 !important; border-color: #666 !important; color: #aaaaaa !important; }
+    }
+    [data-theme="dark"] .sev-critical, .stApp[data-theme="dark"] .sev-critical { background: #3d1015 !important; border-color: #dc3545 !important; color: #f1948a !important; }
+    [data-theme="dark"] .sev-high,     .stApp[data-theme="dark"] .sev-high     { background: #3d3010 !important; border-color: #ffc107 !important; color: #f0c060 !important; }
+    [data-theme="dark"] .sev-medium,   .stApp[data-theme="dark"] .sev-medium   { background: #0d2d35 !important; border-color: #17a2b8 !important; color: #7dd8e8 !important; }
+    [data-theme="dark"] .law-box,      .stApp[data-theme="dark"] .law-box      { background: #0d2518 !important; border-color: #2d8a2d !important; color: #7dcea0 !important; }
+    [data-theme="dark"] .source-note,  .stApp[data-theme="dark"] .source-note  { background: #1e2127 !important; border-color: #666 !important; color: #aaaaaa !important; }
+
 </style>
 """, unsafe_allow_html=True)
 
