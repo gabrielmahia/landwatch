@@ -502,3 +502,15 @@ st.caption(
     "Not affiliated with NEMA, WRMA, or any county government · "
     "This tool tracks structural patterns, not individuals"
 )
+
+# -- Feedback sidebar ---------------------------------------------------------
+with st.sidebar:
+    st.markdown("---")
+    st.markdown(
+        "**Was this useful?**\n\n"
+        f"[:pencil: Leave feedback](https://docs.google.com/forms/d/e/1FAIpQLSff_cjR102HNUeYU428ROv56TScLBzsQRc1JTwY4wGizvTQKw/viewform) (2 min)\n\n"
+        "[:bug: Report a bug](https://github.com/gabrielmahia/landwatch/issues/new)\n\n"
+        "---\n"
+        "*Built by [Gabriel Mahia](https://aikungfu.dev)*\n\n"
+        "[Back to all tools](https://gabrielmahia.github.io)"
+    )
