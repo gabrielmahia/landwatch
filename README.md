@@ -49,7 +49,7 @@ Both tools cite public sources. Both are designed for community use, not surveil
 - **Source per record** — every violation names a NEMA, WRMA, or NCC source (not independently verified: see `data/DATA_STATUS.md`)
 - **Patterns, not individuals** — this tool tracks structural enforcement patterns
 - **Not a complete census** — only records that entered the public enforcement register
-- Verify originals: [nema.go.ke](https://nema.go.ke) · [wrma.go.ke](https://wrma.go.ke)
+- Verify originals: [nema.go.ke](https://nema.go.ke) · [wra.go.ke](https://wra.go.ke) (Water Resources Authority)
 
 ## Local setup
 
